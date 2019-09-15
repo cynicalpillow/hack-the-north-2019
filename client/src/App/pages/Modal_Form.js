@@ -89,7 +89,9 @@ class CollectionsPage extends React.Component {
 
       const url = "api/profile"
 
-      fetch(url, data).then(this.props.handler());
+      fetch(url, data).then(response => {
+        this.props.handler()
+      });
       form.resetFields();
       this.setState({ visible: false });
     });

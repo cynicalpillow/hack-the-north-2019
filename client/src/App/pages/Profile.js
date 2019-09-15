@@ -62,9 +62,11 @@ class Profile extends Component {
   removeMedication = (record) => {
     fetch("api/profile", {
       method: "DELETE",
-      headers: "Content-Type: application/json",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id: record._id })
-    }).then(() => this.fetchTableProps());
+    }).then(response => {
+      this.fetchTableProps()
+    });
   };
 
   render() {
